@@ -5,10 +5,11 @@ package edu.gatech.oad.antlab.person;
  *  returns their name and a
  *  modified string 
  *  
- *  @author Bob
+ *  @author Peter Lee plee99
  *  @version 1.1
  */
 public class Person5 {
+
   /** Holds the persons real name */
   private String name;
   	/**
@@ -31,7 +32,19 @@ public class Person5 {
 	 */
 	private String calc(String input) {
 	  //Person 5 put your implementation here
-	  return null;
+	  char[] inputchars = input.toCharArray();
+	  int length = input.length();
+	  int[] order = new int[length];
+	  for (int i = 0; i < length ; i++) {
+	  	order[i] = i + 2;
+	  }
+	  order[length - 2] = 0;
+	  order[length - 1] = 1;
+	  StringBuilder result = new StringBuilder();
+	  for (int i = 0; i < length; i++) {
+	  	result.append(inputchars[order[i]]);
+	  }
+	  return result.toString();
 	}
 	
 	/**
@@ -45,5 +58,4 @@ public class Person5 {
 	public String toString(String input) {
 	  return name + calc(input);
 	}
-
 }
